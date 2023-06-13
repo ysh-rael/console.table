@@ -1,4 +1,4 @@
-function padValue(value, width) {
+function pad(value, width) {
     const stringValue = String(value)
     const padding = ' '.repeat(width - stringValue.length)
     return stringValue + padding
@@ -27,11 +27,11 @@ function consoleTable(data, exibeObject) {
     const separator = '+' + columnWidths.map(width => '-'.repeat(width + 2)).join('+') + '+'
 
     console.log(separator)
-    console.log('| ' + columns.map((column, index) => padValue(column, columnWidths[index])).join(' | ') + ' |')
+    console.log('| ' + columns.map((column, index) => pad(column, columnWidths[index])).join(' | ') + ' |')
     console.log(separator)
 
     for (const row of rows)
-        console.log('| ' + row.map((value, index) => padValue(value, columnWidths[index])).join(' | ') + ' |')
+        console.log('| ' + row.map((value, index) => pad(value, columnWidths[index])).join(' | ') + ' |')
 
     console.log(separator);
 }
